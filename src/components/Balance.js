@@ -13,14 +13,14 @@ import { selectUser } from './../features/appSlice';
 export default function Balance() {
 
     const user = useSelector(selectUser);
-    const dispatch = useDispatch();
 
     const [balance, setBalance] = useState(0);
-    var temp = 0;
+    const [amount, setAmount] = useState([]);
     const [input, setInput] = useState('');
     const [reason, setReason] = useState('');
     const [option, setOption] = useState('');
     const finalInput = option + input;
+    var final = 0
 
     const options = [
         {
@@ -34,19 +34,17 @@ export default function Balance() {
       ];
 
     useEffect(() => {
-        temp = 0
         db.collection('users')
         .doc(user.id)
         .collection('transactions')
         .orderBy('timestamp', 'desc')
         .onSnapshot((snapshot) => {
+            setAmount([])
             snapshot.docs.map((doc => {
-                console.log(doc.data().amount)
-                temp += parseInt(doc.data().amount)
-                console.log(temp)
-                setBalance(temp)
+                setAmount(amount => amount.concat(parseInt(doc.data().amount)))
             }))
         });
+        setBalance(final)
     }, []); 
     
     const addTransaction = e => {
@@ -58,8 +56,8 @@ export default function Balance() {
         });
     }
 
-       
-
+    final = amount.reduce((a,v) =>  a = a + v , 0 )
+    
     return (
         <div className="balance">
             <h1>Balance: {balance}</h1>

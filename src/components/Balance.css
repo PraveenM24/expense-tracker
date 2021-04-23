@@ -3,8 +3,16 @@
     place-content: center;
 }
 
+.balance > h1 {
+    margin: 30px;
+}
+
 .balance__form {
     display: flex;
     flex-direction: row;
     place-content: center;
+}
+
+.balance__transactions {
+    margin: 20px;
 }
