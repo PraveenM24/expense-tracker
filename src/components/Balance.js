@@ -7,9 +7,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import Transactions from './Transactions';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectUser } from './../features/appSlice';
 
 export default function Balance() {
-    const userId = firebase.auth().currentUser.uid;
+
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
 
     const [balance, setBalance] = useState(0);
     var temp = 0;
@@ -32,7 +36,7 @@ export default function Balance() {
     useEffect(() => {
         temp = 0
         db.collection('users')
-        .doc(userId)
+        .doc(user.id)
         .collection('transactions')
         .orderBy('timestamp', 'desc')
         .onSnapshot((snapshot) => {
@@ -47,7 +51,7 @@ export default function Balance() {
     
     const addTransaction = e => {
         e.preventDefault();
-        db.collection('users').doc(userId).collection('transactions').add({
+        db.collection('users').doc(user.id).collection('transactions').add({
             amount: finalInput,
             reason: reason,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),

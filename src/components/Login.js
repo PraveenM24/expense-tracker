@@ -4,14 +4,17 @@ import { auth } from './../Firebase.js';
 import { useHistory } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/appSlice';
 
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const history = useHistory('');
+    const dispatch = useDispatch(); 
 
-    const login = (event) => {
+    const loginUser = (event) => {
         event.preventDefault();
         if (email === '' || password === '') {
             document.getElementById('email').style.border= '1px solid red';
@@ -26,7 +29,14 @@ function Login() {
         }
         auth.signInWithEmailAndPassword(email, password)
             .then((auth) => {
-                history.push("/home");
+                console.log(auth.user.uid)
+                dispatch(
+                    login({
+                        id: auth.user.uid,
+                        email: auth.user.email,
+                    })
+                );
+                
             })
             .catch((e) => {
                 document.getElementById('email').style.border= '1px solid red';
@@ -61,7 +71,7 @@ function Login() {
                     <Button href="/register" color="primary">
                         Create account
                     </Button>
-                    <Button variant="contained" color="primary" type="submit" onClick={login}>Log In</Button>
+                    <Button variant="contained" color="primary" type="submit" onClick={loginUser}>Log In</Button>
                 </div>
             </form>
         </div>
