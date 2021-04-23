@@ -1,0 +1,10 @@
+.balance {
+    text-align: center;
+    place-content: center;
+}
+
+.balance__form {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+}

@@ -1,0 +1,35 @@
+.register {
+    display: grid;
+    place-items: center;
+}
+
+.register__form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 40px 50px 50px 50px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.register__form > h3{
+    text-align: center;
+    padding: 30px;
+}
+
+.MuiFormControl-root { 
+    margin: 6px !important;
+}
+
+.register__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.register__buttons > .MuiButton-root {
+    width: 200px;
+}
+
+

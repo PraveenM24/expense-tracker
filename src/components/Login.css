@@ -1,0 +1,33 @@
+.login {
+    display: grid;
+    place-items: center;
+}
+
+.login__form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 40px 50px 50px 50px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+.login__form > h3{
+    text-align: center;
+    padding: 30px;
+}
+
+.login__form > .MuiOutlinedInput-input { 
+    margin: 6px !important;
+}
+
+.login__form > .MuiButton-root{
+    margin: 5px 0;
+}
+
+.login__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
