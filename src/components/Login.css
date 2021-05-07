@@ -1,6 +1,30 @@
 .login {
     display: grid;
     place-items: center;
+    margin-top: 50px;
+}
+
+.MuiLinearProgress-root {
+    width: 96%;
+    margin: 0 auto;
+    bottom: -5px;  
+    border-radius: 10em;
+}
+
+@media only screen and (max-width: 500px) {
+    .login__form {
+        width: 71.5% !important;
+        border: none !important;
+        border-radius: none!important;
+    }
+
+    .MuiLinearProgress-root{
+        position: absolute !important;
+        top: 0;
+        left: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important;        
+    }
 }
 
 .login__form{
@@ -10,7 +34,6 @@
     padding: 40px 50px 50px 50px;
     border: 1px solid #C4C4C4;
     border-radius: 10px;
-    margin-top: 50px;
 }
 .login__form > h3{
     text-align: center;

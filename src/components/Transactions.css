@@ -1,0 +1,54 @@
+.transactions {
+    display: flex;
+    flex-direction: column;
+}
+
+.transactions__loader{
+    margin: 60px;
+}
+
+.transactions__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.transactions__tableWrapper {
+    width: 60%;
+    margin: 30px auto;
+}
+
+@media only screen and (max-width: 800px) {
+    .transactions__tableWrapper {
+        width: 100%;
+    }    
+}
+
+.MuiTable-root {
+    width: 80%;
+}
+
+.MuiTableCell-head {
+    font-weight: 600 !important;
+}
+
+
+.MuiTableBody-root > .MuiTableRow-root > .transactions__credit {
+    color: green;
+    font-weight: 700;
+}
+
+.MuiTableBody-root > .MuiTableRow-root > .transactions__debit {
+    color: red;
+    font-weight: 700;
+}
+
+.MuiSvgIcon-root{
+    font-size: 20px !important;
+    cursor: pointer;
+    transition: color 1s;
+}
+
+.MuiSvgIcon-root:hover {
+    color: red;
+}

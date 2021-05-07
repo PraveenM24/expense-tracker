@@ -13,6 +13,13 @@
     place-content: center;
 }
 
+@media only screen and (max-width: 500px) {
+    .balance__form {
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
 .balance__transactions {
     margin: 20px;
 }
