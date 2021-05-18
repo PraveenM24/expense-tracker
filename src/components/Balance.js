@@ -8,11 +8,11 @@ import AddIcon from '@material-ui/icons/Add';
 import Transactions from './Transactions';
 import { useSelector } from 'react-redux';
 import { selectUser } from './../features/appSlice';
+import Analytics from './Analytics';
 
 export default function Balance() {
 
     const user = useSelector(selectUser);
-
     const [balance, setBalance] = useState(0);
     const [input, setInput] = useState('');
     const [reason, setReason] = useState('');
@@ -62,41 +62,48 @@ export default function Balance() {
         <div className="balance">
             <h1>Balance: &#8377; {balance}</h1>
             <form className="balance__form">
-                <TextField
-                    id="standard-select-currency"
-                    select
-                    label=" "
-                    onChange={(e) => setOption(e.target.value)}
-                    helperText="Credit/Debit"
-                >   
-                    {options.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                    </MenuItem>
-                    ))}
+                        <TextField
+                            id="standard-select-currency"
+                            select
+                            label=" "
+                            onChange={(e) => setOption(e.target.value)}
+                            helperText="Credit/Debit"
+                        >   
+                        {options.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
                 
-                </TextField>
-                <TextField 
-                    label = "Amount"
-                    type = "number"
-                    onChange = {(e) => setInput(e.target.value)}    
-                />
-                <TextField 
-                    label = "Reason"
-                    onChange = {(e) => setReason(e.target.value)}    
-                />
-                <IconButton 
-                    color="primary" 
-                    aria-label="upload picture" 
-                    component="span"
-                    type="submit"
-                    onClick={addTransaction}
-                >
-                    <AddIcon />
-                </IconButton>
-            </form>
-            <div className="balance__transactions">
-                <Transactions  calculateBalance = { calculateBalance }/>
+                        </TextField>
+                        <TextField 
+                            label = "Amount"
+                            type = "number"
+                            onChange = {(e) => setInput(e.target.value)}    
+                        />
+                        <TextField 
+                            label = "Reason"
+                            onChange = {(e) => setReason(e.target.value)}    
+                        />
+                        <IconButton 
+                            color="primary" 
+                            aria-label="upload picture" 
+                            component="span"
+                            type="submit"
+                            onClick={addTransaction}
+                        >
+                        <AddIcon />
+                        </IconButton>
+                    </form>
+            <div class="balance__splitScreen">
+                <div className="balance__half">
+                    <div className="balance__transactions">
+                        <Transactions  calculateBalance = { calculateBalance }/>
+                    </div>
+                </div>
+                <div className="balance__half">
+                    <Analytics/>
+                </div>
             </div>
         </div>
     )

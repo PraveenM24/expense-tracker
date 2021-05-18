@@ -38,7 +38,11 @@ function Transactions( { calculateBalance } ) {
 
     return (
         <div className="transactions">
-            <h4 className="transactions__title">Recent Transactions&nbsp;<HistoryIcon/></h4>
+            <div className="transactions__title">
+                <h4>Recent Transactions&nbsp;</h4>
+                <HistoryIcon/>
+            </div>
+
             <div className="transactions__tableWrapper">
                 {loading 
                     ?

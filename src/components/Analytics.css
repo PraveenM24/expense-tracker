@@ -1,0 +1,22 @@
+.analytics{
+    display: flex !important;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.analytics__title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.analytics__chart{
+    margin: 0px 10px !important; 
+}
+
+@media only screen and (max-width:700px) {
+    .analytics__chart{
+        margin: 30px 0px !important;
+    }
+}

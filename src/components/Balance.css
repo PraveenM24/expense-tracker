@@ -7,13 +7,31 @@
     margin: 30px;
 }
 
+.balance__splitScreen {
+    display: flex;
+    flex-direction: row;
+}
+
+.balance__half {
+    width: 50%;
+}
+
 .balance__form {
     display: flex;
     flex-direction: row;
     place-content: center;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
+
+    .balance__splitScreen {
+        display: block;
+    }
+
+    .balance__half {
+        width: 100%;
+    }
+
     .balance__form {
         flex-direction: column;
         width: 80%;
